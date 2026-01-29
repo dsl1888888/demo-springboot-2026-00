@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>com.example</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    
+    <!-- 子模块列表 -->
+    <modules>
+        <module>clickhouse-springboot-crud</module>
+        <module>clickhouse-springboot-mybatis</module>
+        <module>demo-springboot-2026-00-mybatis-mysql8-order-crud</module>
+        <module>demo-springboot-curd-2026-00</module>
+        <module>springboot-crud-json</module>
+    </modules>
+    
+    <!-- 基本设置 -->
+    <properties>
+<!--        <maven.compiler.source>21</maven.compiler.source>-->
+<!--        <maven.compiler.target>21</maven.compiler.target>-->
+        <!-- 跳过测试 -->
+<!--        <skipTests>true</skipTests>-->
+        <!-- 或者 -->
+        <maven.test.skip>true</maven.test.skip>
+    </properties>
+</project>

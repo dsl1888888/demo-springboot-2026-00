@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="init">
+  <update id="createTable">
+    CREATE TABLE IF NOT EXISTS user_log
+    (
+      id UInt64,
+      username String,
+      age UInt8,
+      created_at DateTime
+    )
+    ENGINE = MergeTree
+    ORDER BY id
+  </update>
+</mapper>

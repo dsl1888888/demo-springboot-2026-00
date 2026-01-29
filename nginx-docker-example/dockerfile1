@@ -1,0 +1,12 @@
+# Use official NGINX image
+FROM nginx:alpine
+
+# Copy custom static files into the NGINX html directory
+COPY html/ /usr/share/nginx/html/
+
+# Expose HTTP port
+EXPOSE 80
+
+# Run NGINX in foreground
+CMD ["nginx", "-g", "daemon off;"]
+

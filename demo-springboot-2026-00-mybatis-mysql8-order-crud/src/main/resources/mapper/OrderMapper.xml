@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.OrderMapper">
+
+    <resultMap id="OrderMap" type="com.example.demo.entity.Order">
+        <id column="id" property="id"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="product_name" property="productName"/>
+        <result column="quantity" property="quantity"/>
+        <result column="price" property="price"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="OrderMap">
+        select * from orders
+    </select>
+
+    <select id="selectById" parameterType="long" resultMap="OrderMap">
+        select * from orders where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.example.demo.entity.Order" useGeneratedKeys="true" keyProperty="id">
+        insert into orders(order_no, product_name, quantity, price, create_time)
+        values (#{orderNo}, #{productName}, #{quantity}, #{price}, now())
+    </insert>
+
+    <update id="update" parameterType="com.example.demo.entity.Order">
+        update orders
+        set product_name=#{productName},
+            quantity=#{quantity},
+            price=#{price}
+        where id=#{id}
+    </update>
+
+    <delete id="deleteById" parameterType="long">
+        delete from orders where id=#{id}
+    </delete>
+
+</mapper>

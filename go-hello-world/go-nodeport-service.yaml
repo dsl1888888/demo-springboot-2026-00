@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-hello-world-nodeport-service
+spec:
+  selector:
+    app: go-hello-world
+  ports:
+    - protocol: TCP
+      port: 8080         # Exposes the internal service port
+      targetPort: 8080   # Container's port
+      nodePort: 30101    # Port exposed on each node (choose a value within the range 30000-32767)
+  type: NodePort       # Makes the service accessible from outside the cluster via NodePort

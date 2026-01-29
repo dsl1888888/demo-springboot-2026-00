@@ -1,0 +1,19 @@
+
+spring:
+  datasource:
+    url: jdbc:clickhouse://103.242.3.92:8123/demo?user=admin&password=EW4KNk6lFAHw3YptdvmV&compress=0
+    driver-class-name: com.clickhouse.jdbc.ClickHouseDriver
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+############################for dehub
+debug: true
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO
+    org.springframework.jdbc: DEBUG
+    org.mybatis: DEBUG
+    org.apache.ibatis: DEBUG
+    com.clickhouse: DEBUG
